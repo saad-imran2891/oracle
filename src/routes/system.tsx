@@ -7,7 +7,7 @@ import {
 } from "recharts";
 
 export const Route = createFileRoute("/system")({
-  head: () => ({ meta: [{ title: "System Performance — ORBITAL-AI" }] }),
+  head: () => ({ meta: [{ title: "System Performance — ORACLE" }] }),
   component: System,
 });
 

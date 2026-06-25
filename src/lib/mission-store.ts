@@ -102,7 +102,7 @@ async function loadRealFrames() {
     emit();
     ensureTimer();
 
-    console.log(`✅ ORBITAL-AI: Loaded ${realFrames.length} real inference frames`);
+    console.log(`✅ ORACLE: Loaded ${realFrames.length} real inference frames`);
     console.log(`   Model: ResNet18 | Accuracy: 97.19% | Latency: 0.16ms`);
   } catch (err) {
     console.error("❌ Failed to load real_frames.json:", err);

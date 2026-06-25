@@ -4,7 +4,7 @@ import { Panel, DecisionBadge } from "@/components/panel";
 import { fmtKB } from "@/lib/simulation";
 
 export const Route = createFileRoute("/decisions")({
-  head: () => ({ meta: [{ title: "AI Decisions — ORBITAL-AI" }] }),
+  head: () => ({ meta: [{ title: "AI Decisions — ORACLE" }] }),
   component: Decisions,
 });
 

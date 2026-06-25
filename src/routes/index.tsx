@@ -9,7 +9,7 @@ import {
 import { useMemo } from "react";
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Mission Overview — ORBITAL-AI" }] }),
+  head: () => ({ meta: [{ title: "Mission Overview — ORACLE" }] }),
   component: Overview,
 });
 
@@ -91,12 +91,12 @@ function Overview() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Panel title="Mission Brief" subtitle="ISSSP 2026 · Track 2">
+        <Panel title="Mission Brief" subtitle=" · Track 2">
           <div className="space-y-3 text-sm leading-relaxed">
             <p>
-              <span className="font-display font-semibold">ORBITAL-AI</span> is an onboard
-              scene-relevance payload for 6U/12U CubeSats. A MobileNetV3 land-cover
-              backbone and a YOLOv8n object-density head are fused into a 0–100
+              <span className="font-display font-semibold">ORACLE</span> is an onboard
+              scene-relevance payload for 6U/12U CubeSats. A ResNet18 land-cover
+              backbone and a  object-density head are fused into a 0–100
               relevance score, then a configurable decision engine decides whether
               each frame is <DecisionBadge d="DISCARD" />, <DecisionBadge d="STORE" />,{" "}
               <DecisionBadge d="COMPRESS" />, or <DecisionBadge d="TRANSMIT" />.
@@ -107,8 +107,8 @@ function Overview() {
               ONNX for deployment on Coral / Jetson-class edge accelerators.
             </p>
             <div className="grid grid-cols-2 gap-2 pt-2 font-mono text-xs">
-              <Field k="Backbone" v="MobileNetV3-Large" />
-              <Field k="Detector" v="YOLOv8n (INT8)" />
+              <Field k="Backbone" v="ResNet18-Large" />
+              <Field k="Detector" v=" (INT8)" />
               <Field k="Datasets" v="EuroSAT · BigEarthNet · UC Merced" />
               <Field k="Runtime" v="ONNX Runtime + TensorRT" />
               <Field k="Power Envelope" v="≤ 4.5 W payload" />

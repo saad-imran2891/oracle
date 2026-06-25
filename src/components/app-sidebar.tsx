@@ -30,8 +30,8 @@ export function AppSidebar() {
             <span className="absolute inset-0 rounded-md sweep border-t border-primary/50" />
           </div>
           <div className="leading-tight">
-            <div className="font-display text-sm font-semibold tracking-wide">ORBITAL-AI</div>
-            <div className="label-mono">ISSSP&middot;26 / TRACK&nbsp;2</div>
+            <div className="font-display text-sm font-semibold tracking-wide">ORACLE</div>
+            
           </div>
         </div>
       </SidebarHeader>

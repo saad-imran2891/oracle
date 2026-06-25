@@ -5,7 +5,7 @@ import { fmtKB, DECISION_COLOR } from "@/lib/simulation";
 import { useState } from "react";
 
 export const Route = createFileRoute("/feed")({
-  head: () => ({ meta: [{ title: "Live Satellite Feed — ORBITAL-AI" }] }),
+  head: () => ({ meta: [{ title: "Live Satellite Feed — ORACLE" }] }),
   component: Feed,
 });
 

@@ -10,7 +10,7 @@ import {
 import { useMemo } from "react";
 
 export const Route = createFileRoute("/analytics")({
-  head: () => ({ meta: [{ title: "Analytics — ORBITAL-AI" }] }),
+  head: () => ({ meta: [{ title: "Analytics — ORACLE" }] }),
   component: Analytics,
 });
 

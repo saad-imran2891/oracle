@@ -5,7 +5,7 @@ import { fmtKB } from "@/lib/simulation";
 import { useMemo } from "react";
 
 export const Route = createFileRoute("/queue")({
-  head: () => ({ meta: [{ title: "Transmission Queue — ORBITAL-AI" }] }),
+  head: () => ({ meta: [{ title: "Transmission Queue — ORACLE" }] }),
   component: Queue,
 });
 

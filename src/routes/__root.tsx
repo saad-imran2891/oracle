@@ -56,9 +56,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ORBITAL-AI — Onboard Scene Relevance Payload" },
-      { name: "description", content: "ISSSP 2026 Track 2: AI-powered onboard CubeSat scene-relevance assessment and data-reduction mission console." },
-      { property: "og:title", content: "ORBITAL-AI Mission Console" },
+      { title: "ORACLE — Onboard Scene Relevance Payload" },
+      { name: "description", content: "Real-time image classification dashboard powered by a fine-tuned ResNet18 model. Visualize inference, predictions, and performance metrics across dataset streams." },
+      { property: "og:title", content: "ORACLE Mission Console" },
       { property: "og:description", content: "Onboard AI scene triage for CubeSat downlink reduction — live mission control dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -98,7 +98,7 @@ function TopBar() {
       <div className="flex items-center gap-2 min-w-0">
         <SidebarTrigger />
         <div className="hidden sm:block min-w-0">
-          <div className="label-mono">ORBITAL-AI · MCC</div>
+          <div className="label-mono">ORACLE · MCC</div>
           <h1 className="font-display text-sm font-semibold truncate">{titleMap[pathname] ?? "Mission"}</h1>
         </div>
       </div>
