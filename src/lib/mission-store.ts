@@ -2,7 +2,7 @@
 // Model: ResNet18 fine-tuned on 27,000 Sentinel-2 satellite images
 // Accuracy: 97.19% | Precision: 97.10% | Recall: 97.11% | F1: 97.10%
 // Latency: 0.16ms/image on T4 GPU
-// Replays 200 real inference frames from public/real_frames.json
+// Replays 1999 real inference frames from public/real_frames.json
 
 import {
   type CapturedFrame,
@@ -10,7 +10,7 @@ import {
   DEFAULT_THRESHOLDS,
 } from "./simulation";
 
-const MAX_FRAMES = 240;
+const MAX_FRAMES = 199;
 
 interface State {
   frames: CapturedFrame[];
@@ -69,26 +69,29 @@ async function loadRealFrames() {
 
     const raw = await res.json();
 
-    realFrames = raw.map((f: any): CapturedFrame => ({
-      id:                f.id,
-      ts:                f.ts,
-      orbitSec:          f.orbitSec,
-      lat:               f.lat,
-      lon:               f.lon,
-      sceneClass:        f.sceneClass,
-      cloudCover:        f.cloudCover,
-      objectDensity:     f.objectDensity,
-      novelty:           f.novelty,
-      rawSizeKB:         f.rawSizeKB,
-      relevance:         f.relevance,
-      decision:          f.decision,
-      transmittedSizeKB: f.transmittedSizeKB,
-      latencyMs:         f.latencyMs,
-      thumbHue:          f.thumbHue,
-      imagePath:         f.imagePath,
-      confidence:        f.confidence,
-      correct:           f.correct,
-    }));
+    realFrames = raw
+      .map((f: any): CapturedFrame => ({
+        id:                f.id,
+        ts:                f.ts,
+        orbitSec:          f.orbitSec,
+        lat:               f.lat,
+        lon:               f.lon,
+        sceneClass:        f.sceneClass,
+        cloudCover:        f.cloudCover,
+        objectDensity:     f.objectDensity,
+        novelty:           f.novelty,
+        rawSizeKB:         f.rawSizeKB,
+        relevance:         f.relevance,
+        decision:          f.decision,
+        transmittedSizeKB: f.transmittedSizeKB,
+        latencyMs:         f.latencyMs,
+        thumbHue:          f.thumbHue,
+        imagePath:         f.imagePath,
+        confidence:        f.confidence,
+        correct:           f.correct,
+      }))
+      // Only keep frames that have a real satellite image
+      .filter((f: CapturedFrame) => (f as any).imagePath);
 
     const burst = realFrames.slice(0, 60);
     state = {
@@ -102,7 +105,7 @@ async function loadRealFrames() {
     emit();
     ensureTimer();
 
-    console.log(`✅ ORACLE: Loaded ${realFrames.length} real inference frames`);
+    console.log(`✅ ORACLE: Loaded ${realFrames.length} real inference frames with satellite images`);
     console.log(`   Model: ResNet18 | Accuracy: 97.19% | Latency: 0.16ms`);
   } catch (err) {
     console.error("❌ Failed to load real_frames.json:", err);
